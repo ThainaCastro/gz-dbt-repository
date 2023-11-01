@@ -27,7 +27,33 @@ sources:
           tests:
             - unique:
                 column_name: orders_id
+        - name: adwords
+          identifier: raw_gz_adwords
+          tests:
+            - unique:
+               column_name: "(date_date || '-' || campaign_key)"
+        - name: bing
+          identifier: raw_gz_bing
+          tests:
+            - unique:
+               column_name: "(date_date || '-' || campaign_key)"
+        - name: criteo
+          identifier: raw_gz_criteo
+          tests:
+            - unique:
+               column_name: "(date_date || '-' || campaign_key)"
+        - name: facebook
+          identifier: raw_gz_facebook
+          tests:
+            - unique:
+               column_name: "(date_date || '-' || campaign_key)"
 
-
+models:
+  - name: int_campaigns_day
+    tests:
+      - unique:
+          column_name: date_date
+      - not_null:
+          column_name: date_date  
 
 
